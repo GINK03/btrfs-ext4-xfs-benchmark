@@ -1,0 +1,1 @@
+write multiprocess=1, filenum=10240, datasize=1000(bytes), eplapsed=2.629106044769287

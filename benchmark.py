@@ -24,6 +24,7 @@ def _reads(name):
 def reads(mp=1):
   files = glob.glob('targetssd/*') 
   random.shuffle( files )
+  _reads( files[0] )
   with concurrent.futures.ProcessPoolExecutor(max_workers=mp) as executor:
     executor.map( _reads, files)
 
