@@ -120,8 +120,7 @@ $ python3 benchmark.py | tee log.txt
 ### ext4を基準とした時のパフォーマンス
 ext4のパフォーマンスを1とした時に、相対的にどの程度の速さ（小さい方がいい）なのかを表示します
 <p align="center">
-  <img width="650px" src="https://user-images.githubusercontent.com/4949982/29281711-0b238586-815b-11e7-81a2-70f26cfac4f9.png
-">
+  <img width="100%" src="https://user-images.githubusercontent.com/4949982/29281711-0b238586-815b-11e7-81a2-70f26cfac4f9.png">
 </p>
 <div align="center">  図9. ext4からの相対的な速度 </div>
 
