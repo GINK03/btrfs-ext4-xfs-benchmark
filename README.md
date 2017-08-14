@@ -1,6 +1,10 @@
 # Filesystem Benchmark
 
-## btrfsのサポートがRHELで断念される
+## 各ファイルシステムで数多くのフィイルを作るような用途で最もパフォーマンスが良いものはどれか
+検討します
+
+
+## 背景：btrfsのサポートがRHELで断念される
 [マイナビニュース](http://news.mynavi.jp/news/2017/08/04/056/)にこのような文章が発表されました  
 
 > Btrfsは長年にわたって作業をしているにもかかわらず、依然として技術的な問題が存在しており今後も改善が期待しにくいこと、ZFSはライセンスの関係で取り込むことができないこと、既存の技術と継続しながら新技術を実現するという観点から、当面はXFSをベースとしつつ機能拡張を進めていく「Stratis」プロジェクトを進めることが妥当ではないかと提案している。
@@ -44,14 +48,35 @@ ext4以外を私が積極的に使うことが多い理由の一つとして、e
 
 ext4はそのファイルシステムの制約で、最初にmkfs.ext4した時にinodeの最大値を決めるんですが、ちょくちょくデフォルトから超えてしまい、分析が途中で破綻してしまい、苦しい目をみることになることが多いです　　　
 
-f2fsのファイルの最大数は一体どうなっているのでしょうか  
-未定義ということはないと思うのですが、記述がないので、最後に実験したいと思います　　
+
+## format parameters
+フォーマットには可能なかぎり、オプションは指定しません  
+つまりデフォルトで用いたらどういう場合にパフォーマンスが高いかという視点です  
+```console:f2fs
+F2FS-tools: mkfs.f2fs Ver: 1.8.0 (2017-02-03)
+Info: Debug level = 0
+Info: Label = 
+Info: Trim is enabled
+Info: [/dev/sdd] Disk Model: SanDisk SDSSDA4830RL
+Info: Segments per section = 1
+Info: Sections per zone = 1
+Info: sector size = 512
+Info: total sectors = 937703088 (457862 MB)
+Info: zone aligned segment0 blkaddr: 512
+Info: format version with
+  "Linux version 4.12.5-1-ARCH (builduser@tobias) (gcc version 7.1.1 20170630 (GCC) ) #1 SMP PREEMPT Fri Aug 11 12:40:21 CEST 2017"
+Info: [/dev/sdd] Discarding device
+Info: This device doesn't support BLKSECDISCARD
+```
 
 ## パフォーマンステスト
 シーケンシャルな大きなファイルの読み書きは今回はみません  
 KVS的に使う用途を考えており、数キロから数メガのファイルをとにかく大量に作ることを目的とします　　
 
+今回、よく使う方法で並列アクセスをするベンチマーク用のスクリプトを作成したので、それでみていくことにしまうs
+```console
+$ python3 benchmark.py | tee log.txt
+```
+あるあるなパターンを作り出して、ファイルを読み書きをして、どの程度で終わるかを検証します
 
-
-  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">sh
-  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
+## 結果
