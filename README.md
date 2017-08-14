@@ -1,6 +1,6 @@
-# Filesystem Benchmark
+# Filesystem Benchmark For BigData
 
-## 各ファイルシステムで数多くのフィイルを作るような用途で最もパフォーマンスが良いものはどれか
+## 各ファイルシステムで数多くのファイルを作るような用途で最もパフォーマンスが良いものはどれか
 検討します
 
 
@@ -138,4 +138,8 @@ while True:
     print( e )
     print( 'max file number is', count )
     break
+```
+実行結果
+```console
+$ time python3 make_disaster.py
 ```
