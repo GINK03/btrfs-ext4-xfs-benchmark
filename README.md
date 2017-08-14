@@ -41,3 +41,17 @@ ext4以外を私が積極的に使うことが多い理由の一つとして、e
 <p align="center">
   <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
 </p>
+
+ext4はそのファイルシステムの制約で、最初にmkfs.ext4した時にinodeの最大値を決めるんですが、ちょくちょくデフォルトから超えてしまい、分析が途中で破綻してしまい、苦しい目をみることになることが多いです　　　
+
+f2fsのファイルの最大数は一体どうなっているのでしょうか  
+未定義ということはないと思うのですが、記述がないので、最後に実験したいと思います　　
+
+## パフォーマンステスト
+シーケンシャルな大きなファイルの読み書きは今回はみません  
+KVS的に使う用途を考えており、数キロから数メガのファイルをとにかく大量に作ることを目的とします　　
+
+
+
+  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">sh
+  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
