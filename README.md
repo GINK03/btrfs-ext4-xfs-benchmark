@@ -116,3 +116,24 @@ $ python3 benchmark.py | tee log.txt
   <img width="650px" src="https://user-images.githubusercontent.com/4949982/29276555-eaafcda2-8149-11e7-92d6-b9cc639551d7.png">
 </p>
 <div align="center">  図8. ext4 format @ ラズベリーパイ class 10 U3（オマケ） </div>
+
+## f2fs max file number challenge
+F2FSがこのわたしが分析でよく用いるデザインパターンにおいて最もパフォーマンスが良いことがわかりました。  
+ドキュメントやWikiをさらっても、F2FSの最大ファイルサイズがよくわからないのですが、もともとこのファイルシステムが作られた背景である、フラッシュメモリを効率的に長寿命にもちいたいというモチベーションから考えると、armhf（32bit Armアーキテクチャ）もサポートしたいはずなので、2^32個までいけるんじゃないでしょうか　　
+ext4では500万個を超える程度のファイルを作ると、もう、デフォルトではinodeが埋まってしまい、書き込めないです  
+直近では4000万個ほどの、ファイルを用いる必要があり、とりあえずこの個数までファイルを作れれば良さそうです  
+
+```python:disaster.py
+# ファイルを作りまくって問題がない限界を確認する
+count = 0
+while True:
+  count += 1
+  if count % 10000 == 0:
+    print('now iter', count)
+  try: 
+    open('targetssd/{}'.format(count), 'w' )
+  except Exception as e:
+    print( e )
+    print( 'max file number is', count )
+    break
+```
