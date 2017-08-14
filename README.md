@@ -139,7 +139,12 @@ while True:
     print( 'max file number is', count )
     break
 ```
-実行結果
+以下のコマンドを実行したところ、問題なく完了することができました  
 ```console
 $ time python3 make_disaster.py
 ```
+
+## Official Site Benchmark
+[公式サイトで様々な角度からのベンチマーク](https://jaegeuk.github.io/perf_results/phoronix/05_08_2017/merge-9898/index.html)が行われました  
+nvme, randiskやssdなどで様々な角度からベンチマークが行われています  
+やはりというかなんというか、新しいフォーマットで新しい規格のほど、スコアが良いように見えます
