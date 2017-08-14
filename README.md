@@ -79,7 +79,7 @@ $ python3 benchmark.py | tee log.txt
 ```
 あるあるなパターンを作り出して、ファイルを読み書きをして、どの程度で終わるかを検証します  
 
-1K, 10K, 100Kのファイルをそれぞれ、10000, 20000, 40000こ作成して、どの程度の時間が必要かを測定します  
+1K, 10K, 100Kバイトのファイルをそれぞれ、10000, 20000, 40000こ作成して、どの程度の時間が必要かを測定します  
 
 また、作成したファイルを読み取るのにどの程度必要なのかを測定します  
 
@@ -88,3 +88,40 @@ $ python3 benchmark.py | tee log.txt
   <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276439-9c5c2c72-8149-11e7-9ba4-5229ed9579ea.png">
 </p>
 <div align="center">  図1. ext4 format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276461-af87b816-8149-11e7-902d-de4196c5dd3a.png">
+</p>
+<div align="center">  図2. btrfs format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276473-b7641278-8149-11e7-9af7-43bf62770757.png">
+</p>
+<div align="center">  図3. f2fs format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276489-c09b3434-8149-11e7-87f4-2104ec614961.png">
+</p>
+<div align="center">  図4. reiserfs format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276507-cad7398e-8149-11e7-88f1-678bab06804f.png">
+</p>
+<div align="center">  図5. ntfs format(オレンジが場外に飛んだ) </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276516-d28560d4-8149-11e7-9d42-cc589d7badd4.png">
+</p>
+<div align="center">  図６. xfs format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276534-de646990-8149-11e7-808b-8df75f7d351b.png">
+</p>
+<div align="center">  図7. jfs format </div>
+
+<p align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/4949982/29276555-eaafcda2-8149-11e7-92d6-b9cc639551d7.png">
+</p>
+<div align="center">  図8. ext4 format @ ラズベリーパイ class 10 U3 </div>
+
+
