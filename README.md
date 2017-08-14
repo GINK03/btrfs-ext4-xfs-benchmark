@@ -14,8 +14,8 @@
 
 Linuxで使えるファイルシステムは多岐に渡りますが、何が最も良いのでしょうか。 
 
-ビッグデータの用途で、File Systemを用いたKVSか、LevelDBなどのKVSを用いることがよくあり、この用途では細かい数キロから数メガのファイルを大量に作ります  
-そのため、数多くのinodeを持つことができるbtrfsを今まで用いて来たのですが、他のファイルシステムも検討することにします  
+ビッグデータの用途で、File SystemをKVSのように用いるか、LevelDBなどのKVSを用いることがよくあり、この用途では細かい数キロから数メガのファイルを大量に作ります  
+そのため、数多くのファイルを持つことができるbtrfsを今まで用いて来たのですが、他のファイルシステムも検討することにします  
 
 ## 検討対象のファイルシステムとその実験環境
 まず、条件を整えるため、ハードウェアは固定します
@@ -52,21 +52,11 @@ ext4はそのファイルシステムの制約で、最初にmkfs.ext4した時�
 ## format parameters
 フォーマットには可能なかぎり、オプションは指定しません  
 つまりデフォルトで用いたらどういう場合にパフォーマンスが高いかという視点です  
-```console:f2fs
+```console: each version
 F2FS-tools: mkfs.f2fs Ver: 1.8.0 (2017-02-03)
-Info: Debug level = 0
-Info: Label = 
-Info: Trim is enabled
-Info: [/dev/sdd] Disk Model: SanDisk SDSSDA4830RL
-Info: Segments per section = 1
-Info: Sections per zone = 1
-Info: sector size = 512
-Info: total sectors = 937703088 (457862 MB)
-Info: zone aligned segment0 blkaddr: 512
-Info: format version with
-  "Linux version 4.12.5-1-ARCH (builduser@tobias) (gcc version 7.1.1 20170630 (GCC) ) #1 SMP PREEMPT Fri Aug 11 12:40:21 CEST 2017"
-Info: [/dev/sdd] Discarding device
-Info: This device doesn't support BLKSECDISCARD
+mkfs: mke2fs 1.43.5 (04-Aug-2017)
+mkntfs v2017.3.23 (libntfs-3g)
+
 ```
 
 ## パフォーマンステスト
