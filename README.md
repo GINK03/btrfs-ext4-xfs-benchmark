@@ -39,5 +39,5 @@ ext4以外を私が積極的に使うことが多い理由の一つとして、e
 
 他のファイルシステムは、サイズ、ファイル数はどうなっているのでしょうか
 <p align="center">
-  <img width="600px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
+  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
 </p>
