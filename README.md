@@ -73,7 +73,10 @@ Info: This device doesn't support BLKSECDISCARD
 シーケンシャルな大きなファイルの読み書きは今回はみません  
 KVS的に使う用途を考えており、数キロから数メガのファイルをとにかく大量に作ることを目的とします　　
 
+今回、よく使う方法で並列アクセスをするベンチマーク用のスクリプトを作成したので、それでみていくことにしまうs
+```console
+$ python3 benchmark.py | tee log.txt
+```
+あるあるなパターンを作り出して、ファイルを読み書きをして、どの程度で終わるかを検証します
 
-
-  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">sh
-  <img width="750px" src="https://user-images.githubusercontent.com/4949982/29271950-e431e980-8138-11e7-9f4c-a569ba38a3f4.png">
+## 結果
